@@ -1,0 +1,66 @@
+:root{
+  --bg:#f6f7f5; --panel:#fff; --ink:#14181c; --muted:#66727c; --line:#dfe4e2;
+  --accent:#0f766e; --accent-2:#0b5f59; --warn:#8a4b0f; --warn-bg:#fff6e8;
+  --bad:#a3243b; --bad-bg:#fff0f3; --good:#1c5f3f;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+.top{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;max-width:1060px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{display:grid;place-items:center;width:38px;height:38px;border-radius:9px;background:var(--accent);color:#fff;font-weight:700;letter-spacing:.5px}
+.brand strong{display:block;font-size:17px}
+.tagline{display:block;color:var(--muted);font-size:13px}
+.badge{background:#e7f2f0;color:var(--accent-2);border:1px solid #c7e2de;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:600;white-space:nowrap}
+
+main{padding:26px 0 40px}
+.drop{
+  background:var(--panel);border:2px dashed #c9d2cf;border-radius:14px;padding:34px 20px;text-align:center;
+  transition:border-color .15s, background .15s;
+}
+.drop.over{border-color:var(--accent);background:#f0faf8}
+.drop-title{margin:0 0 6px;font-size:19px;font-weight:650}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.link{background:none;border:none;padding:0;color:var(--accent-2);text-decoration:underline;cursor:pointer;font:inherit}
+button{cursor:pointer;font:inherit}
+.primary{background:var(--accent);color:#fff;border:1px solid var(--accent);border-radius:9px;padding:10px 16px;font-weight:600}
+.primary:hover{background:var(--accent-2)}
+button:not(.primary):not(.link){background:#fff;border:1px solid #cfd7d4;border-radius:9px;padding:10px 14px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:18px}
+h2{font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#3a444d}
+select{padding:9px 10px;border:1px solid #cfd7d4;border-radius:8px;background:#fff;font:inherit;font-weight:400}
+label.check{flex-direction:row;align-items:center;gap:8px;font-weight:400}
+.panel .primary{margin-top:16px}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:22px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
+.card b{display:block;font-size:26px;line-height:1.1;font-variant-numeric:tabular-nums}
+.card span{color:var(--muted);font-size:13px}
+.card.bad b{color:var(--bad)}
+.card.good b{color:var(--good)}
+.warn{margin-top:12px}
+.warn div{background:var(--warn-bg);border:1px solid #f0dcbd;color:var(--warn);border-radius:9px;padding:9px 12px;font-size:14px;margin-bottom:6px}
+.scroll{overflow:auto;border:1px solid var(--line);border-radius:11px;background:var(--panel);max-height:430px}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:8px 10px;border-bottom:1px solid #edf0ee;text-align:left;white-space:nowrap;max-width:340px;overflow:hidden;text-overflow:ellipsis}
+th{position:sticky;top:0;background:#f2f5f3;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);z-index:1}
+td.num{font-variant-numeric:tabular-nums}
+td.bad{background:var(--bad-bg);color:var(--bad)}
+td.empty{color:#aab3ae}
+tbody tr:hover td{background:#f7faf9}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding:16px 20px 40px;font-size:12.5px;color:#4a555e}
+@media (max-width:640px){
+  .tagline{display:none}
+  .bar{padding:12px 16px}
+  .wrap{padding:0 14px}
+}

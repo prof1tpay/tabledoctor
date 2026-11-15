@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TableDoctor — fix a broken CSV before your CRM import fails</title>
+<meta name="description" content="Clean duplicates, broken quotes, bad emails and formula injection in CSV/XLSX files. Runs fully in your browser. No uploads, no subscription.">
+<link rel="stylesheet" href="landing.css">
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top"><span class="mark">TD</span> TableDoctor</a>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a class="cta" href="#pricing">Get Pro — $29</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="wrap hero">
+    <div>
+      <p class="kicker">CSV / XLSX cleanup · local-first</p>
+      <h1>Your import failed because the file is dirty.<br>Fix it in 60 seconds — without uploading client data.</h1>
+      <p class="lede">TableDoctor finds the things that break CRM, ads and accounting imports: duplicate rows, mismatched emails, broken quotes, padded fields, formula-injection cells and Excel artifacts like <code>="007"</code>. It cleans them and exports a file that imports on the first try.</p>
+      <div class="cta-row">
+        <a class="btn" href="#pricing">Buy Pro — $29 one-time</a>
+        <a class="btn ghost" href="app/index.html">Try the free build (250 rows)</a>
+      </div>
+      <p class="fine">Windows, macOS, Linux. Opens in any modern browser. No install, no account, no telemetry.</p>
+    </div>
+    <div class="shot" aria-hidden="true">
+      <div class="shot-bar"><span></span><span></span><span></span><b>tabledoctor</b></div>
+      <div class="shot-body">
+        <div class="pill">9 rows → 6 clean · 2 duplicates · 1 invalid email</div>
+        <table class="mini">
+          <tr><th>Email</th><th>Company</th><th>Phone</th></tr>
+          <tr><td>john.smith@gmail.com</td><td>Acme Logistics</td><td>+1 202 555 0100</td></tr>
+          <tr class="strike"><td>johnsmith@gmail.com</td><td>Acme Logistic</td><td>202.555.0100</td></tr>
+          <tr class="bad"><td>bad-email@</td><td>Zenith Freight</td><td>—</td></tr>
+          <tr><td>ivan@example.ru</td><td>ООО «Ромашка»</td><td>8 999 123-45-67</td></tr>
+          <tr><td>marta@diaz.co</td><td>Zenith Freight</td><td>+1 202 555 0199</td></tr>
+        </table>
+        <div class="pill ok">duplicates removed · formula cells neutralized · UTF-8 BOM export</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap band">
+    <div class="stat"><b>28M</b><span>csv-parse downloads per week — developers solve this in code, ops teams cannot</span></div>
+    <div class="stat"><b>$99</b><span>price of an established desktop data-cleaning app, one-time fee</span></div>
+    <div class="stat"><b>100%</b><span>of processing happens inside your browser tab</span></div>
+  </section>
+
+  <section class="wrap" id="how">
+    <h2>What it fixes</h2>
+    <div class="cols">
+      <div><h3>Broken structure</h3><ul>
+        <li>Unbalanced quotes and stray delimiters</li>
+        <li>Rows with missing or extra fields</li>
+        <li>Empty rows and duplicated headers</li>
+        <li>BOM, Windows-1251, UTF-16, non-breaking spaces</li>
+      </ul></div>
+      <div><h3>Bad data</h3><ul>
+        <li>Duplicate contacts matched by email or phone</li>
+        <li>Invalid emails and phone numbers, listed per column</li>
+        <li>Fuzzy matches like “Acme Logistics” vs “Acme Logistic”</li>
+        <li>Date and number format problems flagged before import</li>
+      </ul></div>
+      <div><h3>Import hazards</h3><ul>
+        <li>Formula injection (<code>=</code>, <code>+</code>, <code>-</code>, <code>@</code>) neutralized</li>
+        <li>Excel artifacts (<code>="007"</code>) unwrapped, leading zeros preserved</li>
+        <li>Clean CSV with UTF-8 BOM, or XLSX in Pro</li>
+        <li>Markdown report of every fix, for your client or your boss</li>
+      </ul></div>
+    </div>
+    <div class="note">
+      <strong>Privacy is the product.</strong> Recruiter lists, patient exports, customer databases: none of it should be pasted into a random web form. TableDoctor has no backend. Download the file, disconnect the network, and it still works.
+    </div>
+  </section>
+
+  <section class="wrap" id="pricing">
+    <h2>Pricing</h2>
+    <div class="price-grid">
+      <div class="price">
+        <h3>Free</h3>
+        <p class="amount">$0</p>
+        <ul><li>Up to 250 rows</li><li>CSV export</li><li>All cleaning rules</li></ul>
+        <a class="btn ghost" href="app/index.html">Download</a>
+      </div>
+      <div class="price featured">
+        <h3>Pro</h3>
+        <p class="amount">$29 <small>one-time</small></p>
+        <ul><li>No row limit</li><li>CSV + XLSX export</li><li>Report for every run</li><li>Lifetime updates for v0.x</li></ul>
+        <a class="btn" href="buy/">Buy — checkout link being wired</a>
+        <p class="fine">14-day refund, no questions.</p>
+      </div>
+      <div class="price">
+        <h3>Done for you</h3>
+        <p class="amount">$99 <small>per file</small></p>
+        <ul><li>Up to 20,000 rows</li><li>Import-ready file in 24h</li><li>Short report of every issue</li><li>One revision included</li></ul>
+        <a class="btn ghost" href="buy/#rescue">Start an import rescue</a>
+      </div>
+    </div>
+    <p class="fine">Prices in USD. Local currency and invoicing available where the payment platform supports it.</p>
+  </section>
+
+  <section class="wrap" id="faq">
+    <h2>Honest questions</h2>
+    <details><summary>Why not just use Excel or Google Sheets?</summary><p>They can deduplicate and trim, but they silently change values (leading zeros, dates), do not detect unbalanced quotes or encoding damage, and never tell you which rows were invalid. TableDoctor reports exactly what it changed.</p></details>
+    <details><summary>Is this a subscription?</summary><p>No. One payment, the file is yours. There is no server to keep running, so there is nothing to charge you for monthly.</p></details>
+    <details><summary>Can it read my .xlsx?</summary><p>Yes, the first sheet, including cells stored as text. Formulas are read as their last displayed value by the bundled SheetJS library.</p></details>
+    <details><summary>Do you guarantee my CRM import will succeed?</summary><p>No. It removes the usual data-level causes of failure. Field mapping and CRM-side validation rules remain yours to check — that is why the report lists every change.</p></details>
+    <details><summary>What do you do with my data?</summary><p>Nothing: it never reaches us. There is no server, no analytics script and no third-party request after the page loads. You can verify it in the network tab.</p></details>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>TableDoctor · local-first CSV/XLSX cleanup</span>
+    <span>Not affiliated with Salesforce, HubSpot, Bitrix24 or any other vendor.</span>
+  </div>
+</footer>
+</body>
+</html>

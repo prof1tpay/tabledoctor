@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TableDoctor Free — clean messy CSV/XLSX</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <div class="brand">
+      <span class="mark">TD</span>
+      <div>
+        <strong>TableDoctor</strong>
+        <span class="tagline">Clean CSV/XLSX before your CRM, ads or accounting import fails</span>
+      </div>
+    </div>
+    <span class="badge" title="No uploads, no accounts, no network calls">100% local</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="drop" class="drop" tabindex="0">
+    <p class="drop-title">Drop a .csv, .tsv or .xlsx file here</p>
+    <p class="muted">or <button class="link" id="pick">choose a file</button> · everything is processed in this browser tab</p>
+    <input type="file" id="file" accept=".csv,.tsv,.txt,.xlsx,.xls" hidden>
+    <p class="muted small">No sample handy? <button class="link" id="sample">load a messy example</button></p>
+  </section>
+
+  <section class="panel" id="options" hidden>
+    <h2>Rules</h2>
+    <div class="grid">
+      <label>Delimiter
+        <select id="delimiter">
+          <option value="auto">Auto-detect</option>
+          <option value=",">Comma</option>
+          <option value=";">Semicolon</option>
+          <option value="&#9;">Tab</option>
+          <option value="|">Pipe</option>
+        </select>
+      </label>
+      <label>Deduplicate by
+        <select id="dedupeMode">
+          <option value="normalized">Smart match (email + phone + text)</option>
+          <option value="exact">Exact values</option>
+          <option value="off">Do not deduplicate</option>
+        </select>
+      </label>
+      <label>Key columns
+        <select id="keyColumns" multiple size="4"></select>
+      </label>
+      <label>When duplicates found
+        <select id="keep">
+          <option value="first">Keep first</option>
+          <option value="last">Keep last</option>
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" id="fuzzy"> Fuzzy match company/name (edit distance ≤ 2)</label>
+      <label class="check"><input type="checkbox" id="formula" checked> Neutralize formula injection (=, +, -, @)</label>
+    </div>
+    <button class="primary" id="run">Clean the table</button>
+  </section>
+
+  <section id="results" hidden>
+    <div class="cards" id="cards"></div>
+    <div id="warnings" class="warn"></div>
+
+    <h2>Columns</h2>
+    <div class="scroll"><table id="colTable"></table></div>
+
+    <h2>Preview <span class="muted small" id="previewNote"></span></h2>
+    <div class="scroll"><table id="preview"></table></div>
+
+    <h2>Export</h2>
+    <div class="actions">
+      <button class="primary" id="csv">Download clean CSV</button>
+      <button class="primary" id="xlsx">Download XLSX</button>
+      <button id="report">Download report (.md)</button>
+      <button id="again">Start over</button>
+    </div>
+    <p class="muted small">Your file never leaves this device. Check the network tab: zero requests after load.</p>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <span>TableDoctor v0.1 · local-first data cleanup</span>
+  <span class="muted">Not affiliated with any CRM vendor. Always verify exports before a bulk import.</span>
+</footer>
+
+<script src="vendor/xlsx.full.min.js"></script>
+<script>window.TD_LIMITS = {"maxRows":250,"xlsx":false,"label":"Free"};</script>
+<script src="core.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
