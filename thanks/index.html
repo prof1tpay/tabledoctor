@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Payment received — TableDoctor</title>
+<link rel="stylesheet" href="../landing.css">
+<style>
+.wrap.narrow{max-width:720px;padding:60px 24px}
+.box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px;margin-top:22px}
+h1{font-size:32px;margin:0 0 12px}
+code{background:#eef1ef;padding:2px 6px;border-radius:5px}
+ul{padding-left:18px}
+.muted{color:var(--muted)}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="logo" href="../"><span class="mark">TD</span> TableDoctor</a><nav><a href="../">Home</a></nav></div></header>
+<main class="wrap narrow">
+  <h1>Thank you — the payment page has been opened</h1>
+  <p class="muted">Note: this page does not confirm payment by itself. The gateway confirms it, and the download link is sent to the email you entered.</p>
+
+  <div class="box">
+    <p><strong>Order:</strong> <code id="order">—</code></p>
+    <ol>
+      <li>Finish the payment on the gateway page (card, local wallet or crypto).</li>
+      <li>You receive a receipt from the gateway and a download link from the seller within 12 hours (usually minutes).</li>
+      <li>Unzip, open <code>index.html</code>, drop your file. Nothing is uploaded.</li>
+    </ol>
+    <p class="muted">If nothing arrives within 12 hours, open an issue at
+      <a href="https://github.com/prof1tpay/tabledoctor/issues/new">github.com/prof1tpay/tabledoctor/issues</a>
+      with the order number above — no card data, please.</p>
+    <p class="muted">14-day refund, no questions. Reply to the receipt or open the same issue.</p>
+  </div>
+</main>
+<footer><div class="wrap foot"><span>TableDoctor</span><span>Not affiliated with any CRM vendor.</span></div></footer>
+<script>
+var p = new URLSearchParams(location.search);
+document.getElementById("order").textContent = p.get("order") || "not provided";
+</script>
+</body>
+</html>
